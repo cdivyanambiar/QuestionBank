@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="product.productstock">
+        <t t-call="report.html_container">
+            <t t-as="o" t-foreach="docs">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h1> Nutrition Report</h1>
+                        <h2> Product Name <span t-field="o.name"/>
+                        </h2>
+                        <h2> Product Stock <span t-field="o.remainingstock"/>
+                        </h2>
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <span t-field="o.name"/>
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.remainingstock"/>
+                                </div>
+                            </div>
+                        </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <report file="product.productstock" id="report_productstock"
+        model="product.template" name="product.productstock"
+        report_type="qweb-pdf" string="Quotation / Order"/>
+        
+    <record id="product_product_template_only_form_view" model="ir.ui.view">
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+        <field name="list_price" position="after">
+             <field name="remainingstock"/>
+        </field>
+        </field>
+    </record>
+
+    <record id="product_product_template_tree_view" model="ir.ui.view">
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+        <field name="categ_id" position="after">
+                     <field name="remainingstock"/>
+        </field>
+        </field>
+    </record>
+    
+    <record id="dietfacts_product_template_tree_view" model="ir.ui.view">
+        <field name="model">product.my_product_stock</field>
+        <field name="arch" type="xml">
+        <tree>
+                <field name="product_id"/>
+                <field name="createdon"/>
+                <field name="qty_ordered"/>
+                <field name="qty_delivered"/>
+                <field name="remainingstock"/>
+        </tree>
+        </field>
+    </record>
+    
+     <record id="dietfacts_meal_only_form_view" model="ir.ui.view">
+        <field name="model">product.my_product_stock</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                <field name="product_id"/>
+                <field name="createdon"/>
+                <field name="qty_ordered"/>
+                <field name="qty_delivered"/>
+                <field name="remainingstock"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    
+    <record id="product_stock_action" model="ir.actions.act_window">
+        <field name="name">Products_Stock</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.my_product_stock</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_type">form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                    Click to define a new stock.
+            </p>
+        </field>
+    </record>
+    <menuitem action="product_stock_action"
+        id="product_stock_action_dietfacts" parent="base.menu_sales" sequence="15"/>  
+</odoo>

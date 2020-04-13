@@ -1,0 +1,16 @@
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 119-024-076
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:17:09] "OPTIONS /getFromServer/?_=1518421561276 HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:17:11] "GET /index/ HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:17:18] "GET /index/ HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:17:38] "GET /index HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:18:09] "GET /index HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:18:11] "GET /index HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:18:12] "GET /index HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:18:40] "GET /index HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:18:43] "GET /index HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:19:11] "GET /index HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:19:21] "GET /index HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Feb/2018 13:19:24] "GET /index HTTP/1.1" 404 -

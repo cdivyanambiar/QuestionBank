@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container" style="margin-top:50px;">
+	<a href="{{ url_for('logout') }}">Logout</a>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                {% if session_user_name %}
+                    <p>Hello <b>{{ session_user_name }}</b></p>		
+                    {% if info %}
+						<p><b>{{ info }}</b></p>	
+					{% endif %}							
+                     <form action="" method="post">
+						 <input type="text" 
+						 STYLE="color: #000000 ; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #e9f3d0;" 
+						 size="50" maxlength="50" placeholder="No.of Question" name="noquestions" value="{{
+						 request.form.noquestions }}"><br><br>
+						 <input type="text" 
+						 STYLE="color: #000000; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #e9f3d0;" 
+						 size="50" maxlength="50"
+						 placeholder="Output Question File Path" name="writeQuestions" value="{{
+						 request.form.writeQuestions }}"><br><br>
+						 
+						 <input type="text" 
+						 STYLE="color: #000000; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #e9f3d0;" 
+						 size="50" maxlength="50"
+						 placeholder="Output Solution File Path" name="writeSolutions" value="{{
+						 request.form.writeSolutions }}"><br><br>
+						 <input class="btn btn-success" type="submit" value="Enter">
+					 </form>
+                {% endif %}                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
